@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MenuItem from "./MenuItem";
-// import indexCss from'../styles/index.scss';
+import styles from '../styles/Menulist.module.scss';
 
 class MenuList extends Component {
     // props のデフォルト値をいれる
@@ -99,7 +99,7 @@ class MenuList extends Component {
 
     render() {
         return (
-          <div className="container">
+          <div className="container menuList">
             <h1 className="h1 mb-4">週間献立</h1>
             <table className="table">
               <thead className="table-dark">
@@ -110,33 +110,33 @@ class MenuList extends Component {
               </thead>
               <tbody>
                 <tr>
-                  <td className="days">月</td>
-                  <td>
+                  <td className={styles.days}>月</td>
+                  <td className={styles.menuName}>
                     {/* 初期値にstateの値を表示 */}
                     <MenuItem face={this.state.menu1} />
                   </td>
                 </tr>
                 <tr>
-                  <td className="days">火</td>
-                  <td>
+                  <td className={styles.days}>火</td>
+                  <td className={styles.menuName}>
                     <MenuItem face={this.state.menu2} />
                   </td>
                 </tr>
                 <tr>
-                  <td className="days">水</td>
-                  <td>
+                  <td className={styles.days}>水</td>
+                  <td className={styles.menuName}>
                     <MenuItem face={this.state.menu3} />
                   </td>
                 </tr>
                 <tr>
-                  <td className="days">木</td>
-                  <td>
+                  <td className={styles.days}>木</td>
+                  <td className={styles.menuName}>
                     <MenuItem face={this.state.menu4} />
                   </td>
                 </tr>
                 <tr>
-                  <td className="days">金</td>
-                  <td>
+                  <td className={styles.days}>金</td>
+                  <td className={styles.menuName}>
                     <MenuItem face={this.state.menu5} />
                   </td>
                 </tr>
