@@ -112,6 +112,7 @@ class MenuList extends Component {
                 <tr>
                   <td className="days">月</td>
                   <td>
+                    {/* 初期値にstateの値を表示 */}
                     <MenuItem face={this.state.menu1} />
                   </td>
                 </tr>
