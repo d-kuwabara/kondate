@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MenuItem from "./MenuItem";
+// import indexCss from'../styles/index.scss';
 
 class MenuList extends Component {
     // props のデフォルト値をいれる
@@ -98,7 +99,7 @@ class MenuList extends Component {
 
     render() {
         return (
-          <div className="col-5">
+          <div className="container">
             <h1 className="h1 mb-4">週間献立</h1>
             <table className="table">
               <thead className="table-dark">
@@ -140,9 +141,11 @@ class MenuList extends Component {
                 </tr>
               </tbody>
             </table>
-            <button onClick={this.roll} className="btn btn-primary">
-              今週の献立メニューをつくる！
-            </button>
+            <div className="mx-auto d-block col-6">
+              <button onClick={this.roll} className="btn btn-primary mx-auto">
+                今週の献立メニューをつくる！
+              </button>
+            </div>
           </div>
         );
     }
