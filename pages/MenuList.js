@@ -10,8 +10,12 @@ function MenuList() {
   const [menu4, setMenu4] = useState(menuJson.thursday[0]);
   const [menu5, setMenu5] = useState(menuJson.friday[0]);
 
+  // 表示する初期値を設定するため、jsonから設定したい値をmenuに指定。
+  // のちにランダム表示させたいので、setMenuしてmenuを操作できるようにする
+
   // 作るを押したときの処理
   function roll () {
+    // menuJsonの配列内の数に乱数を掛ける。その後、小数点以下を四捨五入した計算結果をmenuJsonから取り出す。setMenuにいれて、menuへ渡す
     setMenu1(
       menuJson.monday[
         Math.floor(Math.random() * menuJson.monday.length)
