@@ -43,6 +43,47 @@ function MenuList() {
     );
   }
 
+  //  曜日ごとの変更
+  function roll_monday () {
+    setMenu1(
+      menuJson.monday[
+        Math.floor(Math.random() * menuJson.monday.length)
+      ]
+    );
+  }
+
+  function roll_thuesday () {
+    setMenu2(
+      menuJson.thuesday[
+        Math.floor(Math.random() * menuJson.thuesday.length)
+      ]
+    );
+  }
+
+  function roll_wednesday () {
+    setMenu3(
+      menuJson.wednesday[
+        Math.floor(Math.random() * menuJson.wednesday.length)
+      ]
+    );
+  }
+
+  function roll_thursday () {
+    setMenu4(
+      menuJson.thursday[
+        Math.floor(Math.random() * menuJson.thursday.length)
+      ]
+    );
+  }
+
+  function roll_friday () {
+    setMenu5(
+      menuJson.friday[
+        Math.floor(Math.random() * menuJson.friday.length)
+      ]
+    );
+  }
+
   return(
     <div className="container menuList">
       <h1 className="h1 mb-4">週間献立</h1>
@@ -51,7 +92,8 @@ function MenuList() {
           <tr>
             <th>曜日</th>
             <th>メニュー</th>
-            <th></th>
+            <th>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -60,11 +102,21 @@ function MenuList() {
             <td className={styles.menuName}>
               {menu1}
             </td>
+            <td className="menuChange">
+              <button onClick={roll_monday} className="btn btn-secondary mx-auto">
+                変える
+              </button>
+            </td>
           </tr>
           <tr>
             <td className={styles.days}>火</td>
             <td className={styles.menuName}>
               {menu2}
+            </td>
+            <td className="menuChange">
+              <button onClick={roll_thuesday} className="btn btn-secondary mx-auto">
+                変える
+              </button>
             </td>
           </tr>
           <tr>
@@ -72,17 +124,32 @@ function MenuList() {
             <td className={styles.menuName}>
               {menu3}
             </td>
+            <td className="menuChange">
+              <button onClick={roll_wednesday} className="btn btn-secondary mx-auto">
+                変える
+              </button>
+            </td>
           </tr>
           <tr>
             <td className={styles.days}>木</td>
             <td className={styles.menuName}>
               {menu4}
             </td>
+            <td className="menuChange">
+              <button onClick={roll_thursday} className="btn btn-secondary mx-auto">
+                変える
+              </button>
+            </td>
           </tr>
           <tr>
             <td className={styles.days}>金</td>
             <td className={styles.menuName}>
               {menu5}
+            </td>
+            <td className="menuChange">
+              <button onClick={roll_friday} className="btn btn-secondary mx-auto">
+                変える
+              </button>
             </td>
           </tr>
         </tbody>
