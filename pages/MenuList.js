@@ -6,20 +6,21 @@ function MenuList() {
 
   // メニュー初期表示、menuをstate
   const [mon, setmon] = useState(menuJson.fish);
-  const [thues, setthues] = useState(menuJson.fish);
-  const [wednes, setwednes] = useState(menuJson.fish);
-  const [thurs, setthurs] = useState(menuJson.fish);
-  const [fri, setfri] = useState(menuJson.fish);
+  const [thues, setthues] = useState(menuJson.noodle);
+  const [wednes, setwednes] = useState(menuJson.chicken);
+  const [thurs, setthurs] = useState(menuJson.rice);
+  const [fri, setfri] = useState(menuJson.pork);
 
   // メニュー初期表示、menuをstate
-  const [menu1, setMenu1] = useState(menuJson.fish.menu[0]);
-  const [menu2, setMenu2] = useState(menuJson.fish.menu[0]);
-  const [menu3, setMenu3] = useState(menuJson.fish.menu[0]);
-  const [menu4, setMenu4] = useState(menuJson.fish.menu[0]);
-  const [menu5, setMenu5] = useState(menuJson.fish.menu[0]);
+  const [menu1, setMenu1] = useState(random_roll(mon));
+  const [menu2, setMenu2] = useState(random_roll(thues));
+  const [menu3, setMenu3] = useState(random_roll(wednes));
+  const [menu4, setMenu4] = useState(random_roll(thurs));
+  const [menu5, setMenu5] = useState(random_roll(fri));
 
-  // 表示する初期値を設定するため、jsonから設定したい値をmenuに指定。
-  // のちにランダム表示させたいので、setMenuしてmenuを操作できるようにする
+  function random_roll(week) {
+    return week.menu[Math.floor(Math.random() * week.menu.length)]
+  }
 
   // 作るを押したときの処理
   function roll () {
@@ -54,50 +55,28 @@ function getgenrejson(selectgenre) {
       
   }
 }
-useEffect(() => {
-  roll();
-  }, []);
 
   //  曜日ごとの変更
   function roll_monday () {
-    setMenu1(
-      mon.menu[
-        Math.floor(Math.random() * mon.menu.length)
-      ]
-    );
+    setMenu1(random_roll(mon));
   }
 
   function roll_thuesday () {
-    setMenu2(
-      thues.menu[
-        Math.floor(Math.random() * thues.menu.length)
-      ]
-    );
+    setMenu2(random_roll(thues));
   }
 
   function roll_wednesday () {
-    setMenu3(
-      wednes.menu[
-        Math.floor(Math.random() * wednes.menu.length)
-      ]
-    );
+    setMenu3(random_roll(wednes));
   }
 
   function roll_thursday () {
-    setMenu4(
-      thurs.menu[
-        Math.floor(Math.random() * thurs.menu.length)
-      ]
-    );
+    setMenu4(random_roll(thurs));
   }
 
   function roll_friday () {
-    setMenu5(
-      fri.menu[
-        Math.floor(Math.random() * fri.menu.length)
-      ]
-    );
+    setMenu5(random_roll(fri));
   }
+
   const handleChangemon = e => setmon(getgenrejson(e.target.value));
   const handleChangethues = e => setthues(getgenrejson(e.target.value));
   const handleChangewednes = e => setwednes(getgenrejson(e.target.value));
@@ -107,35 +86,35 @@ useEffect(() => {
   return(
     <div className="container menuList">
       <h1 className="h1 mb-4">週間献立</h1>
-      <select val={mon.slug} onChange={handleChangemon}>
+      <select value={mon.slug} onChange={handleChangemon}>
         <option value="fish">魚</option>
         <option value="noodle">麺</option>
         <option value="chicken">鶏</option>
         <option value="rice">米</option>
         <option value="pork">豚</option>
       </select>
-      <select val={thues.slug} onChange={handleChangethues}>
+      <select value={thues.slug} onChange={handleChangethues}>
         <option value="fish">魚</option>
         <option value="noodle">麺</option>
         <option value="chicken">鶏</option>
         <option value="rice">米</option>
         <option value="pork">豚</option>
       </select>
-      <select val={wednes.slug} onChange={handleChangewednes}>
+      <select value={wednes.slug} onChange={handleChangewednes}>
         <option value="fish">魚</option>
         <option value="noodle">麺</option>
         <option value="chicken">鶏</option>
         <option value="rice">米</option>
         <option value="pork">豚</option>
       </select>
-      <select val={thurs.slug} onChange={handleChangethurs}>
+      <select value={thurs.slug} onChange={handleChangethurs}>
         <option value="fish">魚</option>
         <option value="noodle">麺</option>
         <option value="chicken">鶏</option>
         <option value="rice">米</option>
         <option value="pork">豚</option>
       </select>
-      <select val={fri.slug} onChange={handleChangefri}>
+      <select value={fri.slug} onChange={handleChangefri}>
         <option value="fish">魚</option>
         <option value="noodle">麺</option>
         <option value="chicken">鶏</option>
